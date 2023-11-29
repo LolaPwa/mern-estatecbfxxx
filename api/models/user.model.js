@@ -21,9 +21,8 @@ const userSchema = new mongoose.Schema({
     },
     avatar: {
         type: String,
-        default: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpixabay.com%2Fvectors%2Fblank-profile-picture-mystery-man-973460%2F&psig=AOvVaw3-1XF5URp5RtziduOmtuTd&ust=1701345151774000&source=images&cd=vfe&ved=0CBIQjRxqFwoTCMiwo-WS6YIDFQAAAAAdAAAAABAE"
+        default: "https://www.ministryofcolours.co.uk/cdn/shop/products/Bluepowder.jpg?v=1675851411&width=800"
     },
-
 }, 
 {timestamps:true}
 );
