@@ -1,12 +1,17 @@
 import{useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
-
-
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  signInStart,
+  signInSuccess,
+  signInFailure,
+} from '../redux/user/userSlice';
 export default function SignIn() {
  const [formData, setFormData] = useState({});// keep track old data
- const [error, setError] = useState(null);
- const[loading, setLoading]= useState(false);// change sign up button text to loading
+const{loading, error} = useSelector((state) => state.user);
+ // change sign up button text to loading
  const navigate = useNavigate();
+ const dispatch = useDispatch();
  const handleChange = (e) => {
   setFormData({
     ...formData,// keep form data
@@ -16,7 +21,7 @@ export default function SignIn() {
  const handleSubmit = async (e)=> {
   e.preventDefault();// prevent refreshing page// submit / post data
   try {
-    setLoading(true);
+    dispatch(signInStart());
     const res=await fetch('/api/auth/signin', { // submit form to db
       method:'POST',
       headers:{
@@ -27,16 +32,13 @@ export default function SignIn() {
     const data = await res.json();// convert to json await response
     console.log(data)
     if(data.success === false){// disable when loading and show loading effect
-      setLoading(false);
-      setError(data.message);
+      dispatch(signInFailure(data.message));
       return;
     }
-    setLoading(false);
-    setError(null);
+    dispatch(signInSuccess(data));
     navigate('/');
   }catch (error) {
-    setLoading(false);
-    setError(error.message);
+    dispatch(signInFailure(error.message));
   }
  };
 return (
