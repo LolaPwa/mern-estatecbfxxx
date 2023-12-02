@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { updateUserStart, updateUserSuccess, updateUserFailure , deleteUserStart,
   deleteUserSuccess,deleteUserFailure,signOutUserStart} 
 from '../redux/user/userSlice';
+import{Link} from 'react-router-dom';
 export default function Profile() {
   const fileRef = useRef(null)
   const {currentUser, loading, error} = useSelector((state) => state.user);
@@ -18,6 +19,8 @@ export default function Profile() {
   const[fileUploadError, setFileUploadError] = useState(false);
   const [formData, setFormData] = useState({});
   const [updateSuccess, setUpdateSuccess] = useState(false);
+ // const [showListingsError, setShowListingsError] = useState(false);
+ // const [userListings, setUserListings] = useState([]);
   const dispatch = useDispatch();
  //console.log(formData);
      useEffect(() => {
@@ -180,6 +183,12 @@ dispatch(deleteUserSuccess(data));
 >     
       {loading ? 'loading...': 'Update'}
 </button>
+<Link 
+className = 'bg-green-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80'
+to={'/create-listing'}
+>
+  Create Listing
+</Link>
     </form>
     <div className='flex justify-between mt-5'>
       <span onClick ={handleDeleteUser}  
@@ -189,7 +198,14 @@ dispatch(deleteUserSuccess(data));
     </div>
     <p className = 'text-red-700 mt-5'> {error ? error : ''} </p>
    <p className ='text-green-700 mt-5'> 
-    {updateSuccess ? 'user is updated successfully':''}</p>
+    {updateSuccess ? 'user is updated successfully':''}
+    </p>
+  
+  
+  
+  
+  
+  
   </div>
   )
   }
