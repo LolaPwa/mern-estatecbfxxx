@@ -27,7 +27,7 @@ export default function CreateListing(){
     parking: false,
     furnished: false,
    });
-   const [imageUpLoadError, setImageUploadError]= useState(false);
+   const [imageUploadError, setImageUploadError]= useState(false);
    const [uploading, setUploading] = useState(false);
    const [error, setError] = useState(false);
    const [loading, setLoading] = useState(false);
@@ -103,7 +103,7 @@ export default function CreateListing(){
         if (
             e.target.id === 'parking' ||
             e.target.id === 'furnished' ||
-            e.target.id === 'offer' ||
+            e.target.id === 'offer' 
         ) {
             setFormData({
                 ...formData,
@@ -158,7 +158,7 @@ export default function CreateListing(){
             <h1 className= 'text-3xl font-semibold text-center my-7'>
                 Create a Listing
             </h1>
-            <form onSubmit={handleSubmit} classname='flex flex-col sm:flex-row gap-4'>
+            <form onSubmit={handleSubmit} className='flex flex-col sm:flex-row gap-4'>
                 <div className="flex flex-col gap-4 flex-1">
                     <input 
                     type="text" 
@@ -296,7 +296,7 @@ export default function CreateListing(){
                    required 
                    className="p-3 border border-gray-300 rounded-lg"
                    onChange={handleChange}
-                   checked={formData.discountPrice}
+                   value={formData.discountPrice}
                 />
                    <div className="flex flex-col items-center">
                 <p>Discounted Price</p>
@@ -348,15 +348,24 @@ export default function CreateListing(){
                         alt='listing image' 
                         className="w-20 h-20 object-contain rounded-lg"
                         />
-                                              
+                        <button
+                        type='button'
+                        onClick={() => handleRemoveImage(index)}
+                        className= 'p-3 text-red-700 rounded-lg uppercase hover:opacity-75'
+                        >
+                            Delete
+                            </button>                     
                     </div>
-                ))
-                }
-
-            <button className="p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80"> 
-            Create Listing
-            </button>
+                ))}
+            <button
+            disabled={loading || uploading}
+            className="p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
+            > 
+            {loading ? 'Creating...' : 'Create listing'}
+          </button>
+          {error && <p className="text-red-700 text-sm">{error}</p>}
+            </div>
             </form>
         </main>
-    )
+    );
 }
