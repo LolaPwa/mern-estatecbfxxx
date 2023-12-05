@@ -285,11 +285,11 @@ to={'/create-listing'}
               </div>
               </div>
         ))}
-</div>
+      </div>
     )}
   </div>
-      );
-  }  
+ );
+}  
   
   
   
