@@ -67,7 +67,7 @@ export default function Search() {
     fetchListings();
 }, [location.search]);
 
-const handleChnage = (e) => {
+const handleChange = (e) => {
     if (
         e.target.id === 'all' ||
         e.target.id === 'rent' ||
