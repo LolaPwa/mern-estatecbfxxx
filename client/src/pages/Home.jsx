@@ -7,12 +7,12 @@ import 'swiper/css/bundle';
 import ListingItem from '../components/ListingItem';
 
 export default function Home() {
-    const [offerListing, setOfferListings] = useState([]);
-    const [saleListing, setSaleListings] = useState([]);
-    const [rentListing, setRentListings] = useState([]);
+    const [offerListings, setOfferListings] = useState([]);
+    const [saleListings, setSaleListings] = useState([]);
+    const [rentListings, setRentListings] = useState([]);
     SwiperCore.use([Navigation]);
     console.log(offerListings)
-    useEffect(() => {
+        useEffect(() => {
         const fetchOfferListings = async () => {
             try {
               const res = await fetch('/api/listing/get?offer=true&limit=4');
