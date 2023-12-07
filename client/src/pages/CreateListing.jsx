@@ -112,9 +112,9 @@ export default function CreateListing(){
         }
 
         if (
-            e.target.id === 'number' ||
-            e.target.id === 'text' ||
-            e.target.id === 'textarea'
+            e.target.type === 'number' ||
+            e.target.type === 'text' ||
+            e.target.type === 'textarea'
         ) {
             setFormData({
                 ...formData,

@@ -16,8 +16,6 @@ import {
 } from 'react-icons/fa';
 import Contact from '../components/Contact';
 
-
-
 export default function Listing(){
     SwiperCore.use([Navigation]);
     const [listing, setListing] = useState(null);
@@ -149,7 +147,7 @@ export default function Listing(){
                     Contact landlord
                 </button>
             )}
-            {contact && <contact listing={listing} />}
+            {contact && <Contact listing={listing} />}
 
 
      </div>
