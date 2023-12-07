@@ -167,7 +167,7 @@ export default function CreateListing(){
                    id='name' 
                    maxLength='62'
                    minLength='10' 
-                   required 
+                  required 
                    onChange={handleChange}
                    value={formData.name}
                    />

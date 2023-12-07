@@ -14,7 +14,7 @@ import {
   deleteUserFailure,
   deleteUserStart,
   deleteUserSuccess,
-  signOutUserStart
+  signOutUserStart,
 } from '../redux/user/userSlice';
 import { useDispatch } from 'react-redux';
 import{Link} from 'react-router-dom';
@@ -59,8 +59,8 @@ const handleFileUpload = (file) => {
     setFileUploadError(true);
   },
   () => {
-    getDownloadURL(uploadTask, snapshot.ref).then((downloadURL) =>
-    setFormData({ ...FormData, avatar: downloadURL})
+    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) =>
+    setFormData({ ...formData, avatar: downloadURL})
     );
   }
   );
@@ -102,12 +102,12 @@ const handleDeleteUser = async () => {
     });
     const data = await res.json();
     if (data.success === false) {
-      dispatch(deleteUserFailure(data.nessage));
+      dispatch(deleteUserFailure(data.message));
       return;
     }
     dispatch(deleteUserSuccess(data));
   }catch (error) {
-    dispatch(deleteUserFailure(error.nessage));
+    dispatch(deleteUserFailure(error.message));
 }
 };
 
@@ -122,7 +122,7 @@ const handleSignOut = async () => {
     } 
 dispatch(deleteUserSuccess(data));
 } catch (error) {
-  dispatch(deleteUserFailure(data.nessage));
+  dispatch(deleteUserFailure(data.message));
 }
 };
 
