@@ -69,7 +69,7 @@ export default function Listing(){
                 </SwiperSlide>
             ))}
         </Swiper>
-        <div className='fixede top-[3%] z-10 border rounded-full w-12 flex justify-center items-center bg-slate-100 cursor-pointer'>
+        <div className='fixed top-[3%] z-10 border rounded-full w-12 flex justify-center items-center bg-slate-100 cursor-pointer'>
             <FaShare 
             className='text-slate-500'
             onClick={() => {
