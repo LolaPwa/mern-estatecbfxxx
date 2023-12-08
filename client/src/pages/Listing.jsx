@@ -16,6 +16,8 @@ import {
 } from 'react-icons/fa';
 import Contact from '../components/Contact';
 
+
+
 export default function Listing(){
     SwiperCore.use([Navigation]);
     const [listing, setListing] = useState(null);
@@ -56,12 +58,12 @@ export default function Listing(){
 )}
 {listing && !loading && !error && (
     <div>
-
         <Swiper navigation>
+
             {listing.imageUrls.map((url) => (
                 <SwiperSlide key={url}>
                     <div 
-                    className='h-[550px'
+                    className='h-[550px]'
                     style={{
                         background: `url(${url}) center no-repeat`,
                         backgroundSize:'cover'
@@ -87,7 +89,7 @@ export default function Listing(){
             <p className='fixed top-[23%] right-[5%] z-10 rounded-md bg-slate-100 p-2'>
                 Link copied.
             </p>
-        )} 
+             )} 
      <div className='flex flex-col max-w-4xl mx-auto p-3 my-7 gap-4'>
         <p className='text-2xl font-semibold'>
             {listing.name} -${' '}
