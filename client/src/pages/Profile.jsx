@@ -17,7 +17,7 @@ import {
   signOutUserStart,
 } from '../redux/user/userSlice';
 import { useDispatch } from 'react-redux';
-import{Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 export default function Profile() {
   const fileRef = useRef(null)
   const {currentUser, loading, error} = useSelector((state) => state.user);
@@ -30,10 +30,10 @@ export default function Profile() {
  const [userListings, setUserListings] = useState([]);
   const dispatch = useDispatch();
 
-  
-  
-  
-  
+
+
+
+
   
   
   useEffect(() => {

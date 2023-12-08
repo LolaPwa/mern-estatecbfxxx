@@ -52,10 +52,11 @@ export default function Listing(){
         <main>
 {loading && <p className='text-center my-7 text-2xl'>Loading...</p>}
 {error && (
-    <p className='text-center my-7 text-2xl'> Something went wrong.</p>
+<p className='text-center my-7 text-2xl'> Something went wrong.</p>
 )}
 {listing && !loading && !error && (
     <div>
+
         <Swiper navigation>
             {listing.imageUrls.map((url) => (
                 <SwiperSlide key={url}>
@@ -69,6 +70,7 @@ export default function Listing(){
                 </SwiperSlide>
             ))}
         </Swiper>
+        
         <div className='fixed top-[3%] z-10 border rounded-full w-12 flex justify-center items-center bg-slate-100 cursor-pointer'>
             <FaShare 
             className='text-slate-500'
