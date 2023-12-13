@@ -39,10 +39,10 @@ export const updateListing = async (req, res, next) => {
     }
 
     try{
-        const updatedListing = await Listing.findByIdAndDelete(
+        const updatedListing = await Listing.findByIdAndUpdate(
             req.params.id,
             req.body,
-            {new: True}
+            {new: true}
         );
         res.status(200).json(updatedListing);
     } catch (error) {
