@@ -22,29 +22,29 @@ export default function Search() {
         const urlParams = new URLSearchParams(location.search);
         const searchTermFromUrl = urlParams.get('searchTerm');
         const typeFromUrl = urlParams.get('type');
-        const parkingTermFromUrl = urlParams.get('parking');
-        const furnishedTermFromUrl = urlParams.get('furnishedTerm');
-        const offerTermFromUrl = urlParams.get('offerTerm');
-        const sortTermFromUrl = urlParams.get('sortTerm');
-        const orderTermFromUrl = urlParams.get('orderTerm');
+        const parkingFromUrl = urlParams.get('parking');
+        const furnishedFromUrl = urlParams.get('furnishedTerm');
+        const offerFromUrl = urlParams.get('offerTerm');
+        const sortFromUrl = urlParams.get('sortTerm');
+        const orderFromUrl = urlParams.get('orderTerm');
 
         if (
              searchTermFromUrl ||
              typeFromUrl ||
-             parkingTermFromUrl ||
-             furnishedTermFromUrl ||
-             offerTermFromUrl ||
-             sortTermFromUrl ||
-             orderTermFromUrl
+             parkingFromUrl ||
+             furnishedFromUrl ||
+             offerFromUrl ||
+             sortFromUrl ||
+             orderFromUrl
         ) {
             setSidebardata({
            searchTerm: searchTermFromUrl || '',
             type: typeFromUrl || 'all',
-             parking:parkingTermFromUrl === 'true' ? true: false,
-            Furnished: furnishedTermFromUrl === 'true' ? true: false,
-            offer: offerTermFromUrl === 'true' ? true: false,
-           sort:  sortTermFromUrl || 'created_at',
-            order: orderTermFromUrl || 'desc',
+             parking:parkingFromUrl === 'true' ? true: false,
+            Furnished: furnishedFromUrl === 'true' ? true: false,
+            offer: offerFromUrl === 'true' ? true: false,
+           sort:  sortFromUrl || 'created_at',
+            order: orderFromUrl || 'desc',
         });
 
     }
@@ -54,7 +54,7 @@ export default function Search() {
         setLoading(true);
         setShowMore(false);
         const searchQuery = urlParams.toString();
-        const res = await fetch(`/api/listing/get/${searchQuery}`);
+        const res = await fetch(`/api/listing/get?${searchQuery}`);
         const data = await res.json();
         if (data.length > 8) {
             setShowMore(true);
@@ -121,7 +121,7 @@ const onShowMoreClick = async () => {
     const searchQuery = urlParams.toString();
     const res = await fetch(`/api/listing/get?${searchQuery}`);
     const data = await res.json();
-    if (data.length <9) {
+    if (data.length < 9) {
         setShowMore(false);
     }
     setListings([ ...listings, ...data]);
@@ -174,7 +174,7 @@ return (
                checked={sidebardata.type === 'sale'}
               />
 
-            <span> Sale</span>
+            <span>Sale</span>
             </div>
                 <div className = 'flex gap-2'>
                 <input
@@ -219,10 +219,10 @@ return (
                     onChange={handleChange}
                     defaultValue={'created_at_desc'}
                 id='sort_order' 
-                className='border rounder-lg p-3'
+                className='border rounded-lg p-3'
                 >
-                <option value= 'regularPrice desc'>Price high to low</option>
-                <option value= 'regularPrice asc'>Price high to low</option>
+                <option value= 'regularPrice_desc'>Price high to low</option>
+                <option value= 'regularPrice_asc'>Price low to high</option>
                 <option value= 'createdAt_desc'>Latest</option>
                 <option value= 'createdAt_asc'>Oldest</option>
                 </select>  

@@ -14,6 +14,7 @@ const handleSubmit = (e) => {
   const searchQuery = urlParams.toString();
   navigate(`/search?${searchQuery}`);
 };
+
 useEffect(() => {
   const urlParams = new URLSearchParams(location.search);
   const searchTermFormUrl = urlParams.get('searchTerm');
