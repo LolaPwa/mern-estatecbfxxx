@@ -11,7 +11,7 @@ export default function Home() {
     const [saleListings, setSaleListings] = useState([]);
     const [rentListings, setRentListings] = useState([]);
    SwiperCore.use([Navigation]);
-   console.log(offerListings)
+   //console.log(offerListings)
             useEffect(() => {
         const fetchOfferListings = async () => {
             try {
@@ -54,20 +54,23 @@ export default function Home() {
       {/*top*/}
       <div className='flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto'>
         <h1 className='text-slate-700 font-bold text-3xl lg:text-6xl'>
-          Find your next <span className='text-slate-500'>perfect</span>
+          Securing vacant properties, <span className='text-slate-500'> finding</span>
           <br />
-          place with ease
+          affordable housing.
         </h1>
-        <div className='text-gray-400 text-xs sm:text-sm'>
-          Lola Estates is the right and perfect place to acquire your place to live.
+        <div className='text-black-400 text-xs sm:text-sm'>
+          Are you looking to secure your vacant property whilst at the same time providing 
+          affortable accommodation for those most in need? then LolaEstates is the right place to begin.
+          
           <br />
-          We have a wide range of properties for you to select from.  
+          Are you looking for temporary accommodation at a discount then we have a wide range of luxury 
+          properties to select from.  
       </div>
       <Link
       to={'/search'}
-      className='text-xs sm:text-sm text-blue-800 font-bold hover:underline'
+      className='text-xs sm:text-sm text-green-800 font-bold hover:underline'
       >
-        Lets begin your journey...
+        Click here to sign up or search
       </Link>
 </div>
 {/*swiper*/}

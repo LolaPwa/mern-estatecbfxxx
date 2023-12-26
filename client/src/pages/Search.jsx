@@ -49,7 +49,6 @@ export default function Search() {
 
     }
 
-    
     const fetchListings = async () => {
         setLoading(true);
         setShowMore(false);
