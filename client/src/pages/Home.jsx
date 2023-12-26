@@ -60,7 +60,7 @@ export default function Home() {
         </h1>
         <div className='text-black-400 text-xs sm:text-sm'>
           Are you looking to secure your vacant property whilst at the same time providing 
-          affortable accommodation for those most in need? then LolaEstates is the right place to begin.
+          affortable accommodation for those most in need,then LolaEstates is the right place to begin.
           
           <br />
           Are you looking for temporary accommodation at a discount then we have a wide range of luxury 
@@ -70,7 +70,7 @@ export default function Home() {
       to={'/search'}
       className='text-xs sm:text-sm text-green-800 font-bold hover:underline'
       >
-        Click here to sign up or search
+        Click here to begin your search
       </Link>
 </div>
 {/*swiper*/}
