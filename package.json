@@ -4,10 +4,19 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+ 
   "scripts": {
     "dev": "nodemon api/index.js",
-    "start": "node api/index.js"
+    "start": "node api/index.js",
+    "test": "jest"
   },
+  "jest":{
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+ 
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -20,5 +29,9 @@
     "mongoose": "^8.0.1",
     "nodemon": "^3.0.1",
     "swiper": "^11.0.5"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
+
 }
