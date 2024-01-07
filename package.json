@@ -10,14 +10,22 @@
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "jest": {
-    "transform": {"^.+\\.(js?)$":"babel-jest"},
+    "transform": {
+      "^.+\\.(js?)$": "babel-jest"
+    },
     "testEnvironment": "node",
+    "testEnvironmentOptions": {
+      "NODE_ENV": "test"
+    },
+
     "testPathIgnorePatterns": [
       "/node_modules/"
     ],
     "testRegex": "(/__/.*|(\\.|/)(test|spec))\\.[jt]sx?$",
-    "setupFilesAfterEnv":["./setupTests.js"]
-   
+    "setupFilesAfterEnv": [
+      "./setupTests.js"
+    ]
+    
   },
   "keywords": [],
   "author": "",

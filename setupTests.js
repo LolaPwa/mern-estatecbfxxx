@@ -10,12 +10,17 @@ export const setupbeforeAll= async() => {
     const uri = mongod.getUri();
    
     // set the MongoDb URI to use the in-memory server during  tests
-    process.env.MONGODB_URI = uri;
+    process.env.MONGODB_URI = process.env.NODE_ENV === 'test' ? uri:process.env.MONGO;
 
     await mongoose.connect(process.env.MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
+
+if(!mongod.isRunning) {
+  throw new Error('MongoDB in-memory server failed');
+}
+
   };
 
 
