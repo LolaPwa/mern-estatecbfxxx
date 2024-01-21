@@ -1,3 +1,8 @@
+## Github location 
+1. Created using repository https://github.com/LolaPwa/mern-estatecbfxxx
+2. Project was then moved to https://github.com/LolaPwa/cbfmain-project
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
